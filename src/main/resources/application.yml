@@ -1,0 +1,17 @@
+# project listen port
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+# spring data config
+spring:
+  freemarker:
+    suffix: .ftl
+    charset: UTF-8
+    content-type: text/xml
+  data:
+    neo4j:
+      uri: bolt://192.168.15.241:7687
+      username: neo4j
+      password: pgtalk

@@ -16,14 +16,35 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.neo4jdemo.neo4j.entity;
+package com.example.neo4jdemo.neo4j.entity.example;
 
-/**
- * @author vince
- */
+import org.neo4j.ogm.annotation.GeneratedValue;
+import org.neo4j.ogm.annotation.Id;
 
-public abstract class Entity {
 
-    public Long id;
-    public String name;
+public abstract class NodeId {
+    @Id @GeneratedValue
+    private Long nodeId;
+
+    private String getLabel() {
+        return label;
+    }
+
+
+    /**
+     * getter & setter
+     */
+    public void setLabel(String label) {
+        this.label = label;
+    }
+
+    private String label;
+
+    public Long getNodeId() {
+        return nodeId;
+    }
+
+    public void setNodeId(Long nodeId) {
+        this.nodeId = nodeId;
+    }
 }

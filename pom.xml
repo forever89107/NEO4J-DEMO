@@ -31,6 +31,12 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
+			<exclusions>
+				<exclusion>
+					<groupId>org.junit.vintage</groupId>
+					<artifactId>junit-vintage-engine</artifactId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 		<!-- neo4j start-->
 		<dependency>
@@ -48,7 +54,12 @@
 			<artifactId>spring-data-neo4j</artifactId>
 			<version>5.3.9.RELEASE</version>
 		</dependency>
-		<!-- neo4j end-->
+		<!-- mapstruct -->
+<!--		<dependency>-->
+<!--			<groupId>org.mapstruct</groupId>-->
+<!--			<artifactId>mapstruct</artifactId>-->
+<!--			<version>1.4.2.Final</version>-->
+<!--		</dependency>-->
 	</dependencies>
 
 	<build>
@@ -65,6 +76,23 @@
 					</excludes>
 				</configuration>
 			</plugin>
+			<!-- mapstruct -->
+<!--			<plugin>-->
+<!--				<groupId>org.apache.maven.plugins</groupId>-->
+<!--				<artifactId>maven-compiler-plugin</artifactId>-->
+<!--				<version>3.8.1</version>-->
+<!--				<configuration>-->
+<!--					<source>1.8</source> &lt;!&ndash; depending on your project &ndash;&gt;-->
+<!--					<target>1.8</target> &lt;!&ndash; depending on your project &ndash;&gt;-->
+<!--					<annotationProcessorPaths>-->
+<!--						<path>-->
+<!--							<groupId>org.mapstruct</groupId>-->
+<!--							<artifactId>mapstruct-processor</artifactId>-->
+<!--							<version>1.4.2.Final</version>-->
+<!--						</path>-->
+<!--					</annotationProcessorPaths>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 		</plugins>
 	</build>
 

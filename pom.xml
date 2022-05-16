@@ -15,6 +15,7 @@
 	<description>neo4j-demo</description>
 	<properties>
 		<java.version>1.8</java.version>
+		<org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -54,12 +55,28 @@
 			<artifactId>spring-data-neo4j</artifactId>
 			<version>5.3.9.RELEASE</version>
 		</dependency>
+		<dependency>
+			<groupId>org.neo4j</groupId>
+			<artifactId>neo4j-ogm-core</artifactId>
+			<version>3.2.33</version>
+			<scope>compile</scope>
+		</dependency>
 		<!-- mapstruct -->
 <!--		<dependency>-->
 <!--			<groupId>org.mapstruct</groupId>-->
-<!--			<artifactId>mapstruct</artifactId>-->
-<!--			<version>1.4.2.Final</version>-->
+<!--			<artifactId>mapstruct-jdk8</artifactId>-->
+<!--			<version>${org.mapstruct.version}</version>-->
 <!--		</dependency>-->
+<!--		<dependency>-->
+<!--			<groupId>org.mapstruct</groupId>-->
+<!--			<artifactId>mapstruct-processor</artifactId>-->
+<!--			<version>${org.mapstruct.version}</version>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -76,23 +93,30 @@
 					</excludes>
 				</configuration>
 			</plugin>
-			<!-- mapstruct -->
-<!--			<plugin>-->
-<!--				<groupId>org.apache.maven.plugins</groupId>-->
-<!--				<artifactId>maven-compiler-plugin</artifactId>-->
-<!--				<version>3.8.1</version>-->
-<!--				<configuration>-->
-<!--					<source>1.8</source> &lt;!&ndash; depending on your project &ndash;&gt;-->
-<!--					<target>1.8</target> &lt;!&ndash; depending on your project &ndash;&gt;-->
-<!--					<annotationProcessorPaths>-->
-<!--						<path>-->
-<!--							<groupId>org.mapstruct</groupId>-->
-<!--							<artifactId>mapstruct-processor</artifactId>-->
-<!--							<version>1.4.2.Final</version>-->
-<!--						</path>-->
-<!--					</annotationProcessorPaths>-->
-<!--				</configuration>-->
-<!--			</plugin>-->
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.10.1</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<annotationProcessorPaths>
+						<!-- lombok -->
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>${lombok.version}</version>
+						</path>
+						<!-- mapstruct -->
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+							<version>${org.mapstruct.version}</version>
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 

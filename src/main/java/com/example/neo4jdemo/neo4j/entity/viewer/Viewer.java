@@ -7,6 +7,6 @@ import org.neo4j.ogm.annotation.NodeEntity;
 
 @Data
 @Builder
-@NodeEntity("觀眾")
+@NodeEntity("Viewer")
 public class Viewer extends PersonInfo {
 }

@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
+
+import java.util.Map;
 
 
 /**
@@ -12,18 +15,18 @@ import org.springframework.http.ResponseEntity;
  */
 @Getter
 @Setter
+//@AllArgsConstructor
 public class Response extends ResponseEntity {
-    //檢核碼
-    private HttpStatus code;
+    // 狀態碼
+    private int code;
     //回傳訊息
-    private String message;
+    private String msg;
+    //回傳內容 <"list", items>
+    private Map<String, Object> map;
+
 
     public Response(HttpStatus status) {
         super(status);
     }
 
-    public Response(HttpStatus status, String message) {
-        super(status);
-        this.message = message;
-    }
 }

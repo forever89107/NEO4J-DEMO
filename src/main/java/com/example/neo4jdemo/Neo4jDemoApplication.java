@@ -3,7 +3,7 @@ package com.example.neo4jdemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = {"com.example.neo4jdemo"})
 public class Neo4jDemoApplication {
 
 	public static void main(String[] args) {

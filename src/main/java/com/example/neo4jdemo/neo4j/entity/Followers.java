@@ -3,8 +3,11 @@ package com.example.neo4jdemo.neo4j.entity;
 import lombok.Data;
 import org.neo4j.ogm.annotation.*;
 
+/**
+ * 粉絲 Node
+ */
 @Data
-@NodeEntity(label = "粉絲")
+@NodeEntity(label = "Followers")
 public class Followers {
     @Id
     @GeneratedValue
@@ -14,11 +17,10 @@ public class Followers {
 
     @Relationship(type = "NEXT", direction = Relationship.OUTGOING)
     private Followers next;
-//
+
     @Transient
     private Followers previous;
-//
-//
+
 //    public void setNext(Followers next) {
 //        this.next = next;
 //        if (next != null) {

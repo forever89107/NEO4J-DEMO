@@ -1,7 +1,7 @@
 package com.example.neo4jdemo.service.streamer.convert;
 
-import com.example.neo4jdemo.controller.streamer.StreamerDto;
-import com.example.neo4jdemo.neo4j.entity.streamer.StreamerDao;
+import com.example.neo4jdemo.controller.dto.StreamerDto;
+import com.example.neo4jdemo.neo4j.entity.StreamerDao;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -11,11 +11,10 @@ public interface StreamerConvert {
     StreamerConvert INSTANCE = Mappers.getMapper(StreamerConvert.class);
 
     @Mapping(target = "uuid", ignore = true)
-    StreamerDao toStreamer(StreamerDto dto);
+    StreamerDao toStreamerDao(StreamerDto dto);
+//    Iterable<StreamerDto> toStreamerList(Iterable<StreamerDto> dtos);
 
-    Iterable<StreamerDto> toStreamerList(Iterable<StreamerDto> dtos);
-
-//    StreamerDto toStreamerDto(Streamer dto);
+    StreamerDto toStreamerDto(StreamerDao dao);
 //    List<StreamerDto> toStreamerList(List<Streamer> dtos);
 
 

@@ -8,7 +8,7 @@ import org.neo4j.ogm.annotation.*;
  */
 @Data
 @NodeEntity(label = "Followers")
-public class Followers {
+public class Follower {
     @Id
     @GeneratedValue
     private Long id;
@@ -16,10 +16,10 @@ public class Followers {
     private String name;
 
     @Relationship(type = "NEXT", direction = Relationship.OUTGOING)
-    private Followers next;
+    private Follower next;
 
     @Transient
-    private Followers previous;
+    private Follower previous;
 
 //    public void setNext(Followers next) {
 //        this.next = next;

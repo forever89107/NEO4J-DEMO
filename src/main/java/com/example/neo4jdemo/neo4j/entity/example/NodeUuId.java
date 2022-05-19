@@ -1,6 +1,5 @@
 package com.example.neo4jdemo.neo4j.entity.example;
 
-import lombok.Builder;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.Labels;
 import org.neo4j.ogm.annotation.NodeEntity;
@@ -11,14 +10,10 @@ import java.util.Set;
 import static java.util.UUID.randomUUID;
 
 @NodeEntity
-public class NodeUuId {
+public abstract class NodeUuId {
 
     public NodeUuId() {
         uuid = randomUUID().toString();
-    }
-
-    public NodeUuId(String uuid) {
-        this.uuid = uuid;
     }
 
     @Id

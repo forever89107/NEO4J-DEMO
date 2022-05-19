@@ -1,4 +1,4 @@
-package com.example.neo4jdemo.neo4j.entity.streamer;
+package com.example.neo4jdemo.neo4j.entity;
 
 import com.example.neo4jdemo.neo4j.entity.example.PersonInfo;
 import com.example.neo4jdemo.neo4j.enums.streamertype.Type;

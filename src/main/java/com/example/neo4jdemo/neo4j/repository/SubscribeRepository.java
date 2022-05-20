@@ -1,6 +1,8 @@
 package com.example.neo4jdemo.neo4j.repository;
 
+import com.example.neo4jdemo.neo4j.entity.StreamerDao;
 import com.example.neo4jdemo.neo4j.entity.SubscribeRel;
+import com.example.neo4jdemo.neo4j.entity.ViewerDao;
 import org.springframework.data.neo4j.annotation.Query;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.stereotype.Repository;
@@ -11,8 +13,11 @@ import java.util.UUID;
 public interface SubscribeRepository extends Neo4jRepository<SubscribeRel, UUID> {
     // 尋找 關係
     //MATCH (a)-[r]-(b) WHERE id(r) = 84 RETURN a,b,r
-    @Query("MATCH (a)-[r]-(b) WHERE id(r) = {id} RETURN r.identity")
-    Long getRelationShip(Long id);
+    //MATCH (x:Developer)-[r]-() RETURN startNode(r)
+    @Query("MATCH (a)-[r:subscribe]-(b) WHERE id(r) = {id} RETURN startNode(r)")
+    ViewerDao getSubRelStrNode(Long id);
+    @Query("MATCH (a)-[r:subscribe]-(b) WHERE id(r) = {id} RETURN endNode(r)")
+    StreamerDao getSubRelEndNode(Long id);
 
 
     //返回節點n以及n指向的所有節點與關系

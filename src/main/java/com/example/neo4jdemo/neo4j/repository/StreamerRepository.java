@@ -7,7 +7,7 @@ import org.springframework.data.neo4j.repository.Neo4jRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -32,6 +32,10 @@ public interface StreamerRepository extends Neo4jRepository<StreamerDao, UUID> {
     //Match(s:Streamer{uuid:"f82de68a-dc28-4c37-a112-bbf7bb39f997"}) return s;
     @Query("MATCH (s:Streamer {uuid:{uuid}}) RETURN s")
     StreamerDao selectByUuId(@Param("uuid") String uuid);
+    //MATCH (s:Streamer {Name:"Sara"})-[r]->() RETURN type(r)
+    @Query("MATCH (s:Streamer {Name:{name}})-[r]->() RETURN type(r)")
+    List<String> getRelName(@Param("name") String name);
+    //
 
     //MATCH (s:Streamer {Name: "Joe"})
     //SET s.location = "US"

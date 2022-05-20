@@ -1,21 +1,24 @@
 package com.example.neo4jdemo.controller.dto;
 
 import com.example.neo4jdemo.neo4j.enums.Gender;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
 import java.util.Date;
 import java.util.Set;
 
 @Data
+@ApiModel(description = "粉絲模組")
 public class ViewerDto {
-    // 主播暱稱
+    @ApiModelProperty(value = "名稱", required = true)
     private String name;
-    // 複數labels
+    @ApiModelProperty(value = "別名")
     private Set<String> labels;
-    // 生日
+    @ApiModelProperty(value = "生日")
     private Date birthday;
-    // 所在區域
+    @ApiModelProperty(value = "所在區域")
     private String location;
-    //性別
+    @ApiModelProperty(value = "性別")
     private Gender gender;
 }
